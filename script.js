@@ -1,20 +1,14 @@
 const container = document.querySelector(".container");
 let gridSize = 10;
 const btn = document.querySelector("button");
-const colors = [
-	"#FF6B6B", // Red
-	"#4ECDC4", // Teal
-	"#45B7D1", // Blue
-	"#96CEB4", // Green
-	"#FFEEAD", // Yellow
-	"#D4A5A5", // Pink
-	"#7D5A5A", // Brown
-];
 
 document.documentElement.style.setProperty("--grid-size", gridSize);
 
 function getRandomColor() {
-	return colors[Math.floor(Math.random() * colors.length)];
+	const r = Math.floor(Math.random() * 256);
+	const g = Math.floor(Math.random() * 256);
+	const b = Math.floor(Math.random() * 256);
+	return `rgb(${r},${g},${b}`;
 }
 
 function createGrid() {
