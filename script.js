@@ -2,17 +2,12 @@ const container = document.querySelector(".container");
 let gridSize = 10;
 const btn = document.querySelector("button");
 
-btn.addEventListener("click", () => {
-	const grid = +prompt("Enter preferred grid size:");
-	if (grid > 100 || grid < 1) {
-		alert("Grid size must be between 1 and 100.");
-		return;
-	} else {
-		gridSize = grid;
-	}
+document.documentElement.style.setProperty("--grid-size", gridSize);
 
+createGrid();
+
+function createGrid() {
 	container.innerHTML = "";
-	document.documentElement.style.setProperty("--grid-size", gridSize);
 
 	for (let i = 0; i < gridSize; i++) {
 		const row = document.createElement("div");
@@ -29,4 +24,16 @@ btn.addEventListener("click", () => {
 
 		container.appendChild(row);
 	}
+}
+
+btn.addEventListener("click", () => {
+	const grid = +prompt("Enter preferred grid size:");
+	if (grid > 100 || grid < 1) {
+		alert("Grid size must be between 1 and 100.");
+		return;
+	} else {
+		gridSize = grid;
+	}
+
+	createGrid();
 });
