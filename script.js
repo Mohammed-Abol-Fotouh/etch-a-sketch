@@ -1,10 +1,21 @@
 const container = document.querySelector(".container");
 let gridSize = 10;
 const btn = document.querySelector("button");
+const colors = [
+	"#FF6B6B", // Red
+	"#4ECDC4", // Teal
+	"#45B7D1", // Blue
+	"#96CEB4", // Green
+	"#FFEEAD", // Yellow
+	"#D4A5A5", // Pink
+	"#7D5A5A", // Brown
+];
 
 document.documentElement.style.setProperty("--grid-size", gridSize);
 
-createGrid();
+function getRandomColor() {
+	return colors[Math.floor(Math.random() * colors.length)];
+}
 
 function createGrid() {
 	container.innerHTML = "";
@@ -18,13 +29,15 @@ function createGrid() {
 			square.classList.add("square");
 			row.appendChild(square);
 			square.addEventListener("mouseover", () => {
-				square.style.backgroundColor = "red";
+				square.style.backgroundColor = getRandomColor();
 			});
 		}
 
 		container.appendChild(row);
 	}
 }
+
+createGrid();
 
 btn.addEventListener("click", () => {
 	const grid = +prompt("Enter preferred grid size:");
