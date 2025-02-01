@@ -1,0 +1,25 @@
+:root {
+	--grid-size: 16;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+}
+
+.row {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+}
+
+.square {
+	width: calc(100% / var(--grid-size));
+	aspect-ratio: 1;
+	border: 1px solid teal;
+	border-radius: 0.2em;
+	box-sizing: border-box;
+}
